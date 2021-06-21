@@ -33,7 +33,6 @@ const Payment = () => {
 			};
 			addNewOrder(newOrder);
 			history.push('/checkout/success');
-			console.log('hola');
 		}
 	};
 
