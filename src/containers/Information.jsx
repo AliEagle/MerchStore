@@ -1,5 +1,5 @@
 import React, { useRef, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import AppContext from '../context/AppContext';
 import '../styles/components/Information.css';
 
@@ -9,6 +9,25 @@ const Information = () => {
 		addToBuyer,
 	} = useContext(AppContext);
 	const form = useRef(null);
+	const history = useHistory();
+
+	const handleSubmit = () => {
+		const formData = new FormData(form.current);
+		const buyer = {
+			name: formData.get('name'),
+			email: formData.get('email'),
+			address: formData.get('address'),
+			apto: formData.get('apto'),
+			city: formData.get('city'),
+			country: formData.get('country'),
+			state: formData.get('state'),
+			cp: formData.get('cp'),
+			phone: formData.get('phone'),
+		};
+		addToBuyer(buyer);
+		history.push('/checkout/payment');
+	};
+
 	return (
 		<div className='Information'>
 			<div className='Information-content'>
@@ -33,12 +52,14 @@ const Information = () => {
 						<Link to='/checkout'>Regresar</Link>
 					</div>
 					<div className='Information-next'>
-						<Link to='/checkout/payment'>Pagar</Link>
+						<button type='button' onClick={handleSubmit}>
+							Pagar
+						</button>
 					</div>
 				</div>
 			</div>
 			<div className='Information-sidebar'>
-				<h3>Pedido:</h3>
+				<h3>Pedido: </h3>
 				{cart.map((item, index) => (
 					<div className='Information-item' key={index}>
 						<div className='Information-element'>
