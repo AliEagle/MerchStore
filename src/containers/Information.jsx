@@ -23,7 +23,7 @@ const Information = () => {
 			'cp': formData.get('cp'),
 			'phone': formData.get('phone'),
 		};
-		console.log(buyer.name);
+
 		addToBuyer(buyer);
 		history.push('/checkout/payment');
 	};
