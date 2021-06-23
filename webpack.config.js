@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
-require('dotenv').config;
+require('dotenv').config();
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
