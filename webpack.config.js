@@ -6,7 +6,7 @@ require('dotenv').config();
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-	mode: 'development',
+	mode: 'production',
 	devtool: 'inline-source-map',
 	entry: './src/index.js',
 	output: {
@@ -65,7 +65,7 @@ module.exports = {
 		}),
 
 		new Dotenv({
-			path: path.resolve(__dirname, './sys.env'),
+			path: path.resolve(__dirname, './*.env'),
 		}),
 	],
 	devServer: {
