@@ -52,7 +52,9 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: 'assets/[name].css',
 		}),
-		new DotenvWebpackPlugin(),
+		new DotenvWebpackPlugin({
+			path: path.resolve(__dirname, './.env'),
+		}),
 	],
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
