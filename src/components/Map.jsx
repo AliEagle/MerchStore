@@ -15,14 +15,11 @@ const Map = ({ data }) => {
 	const { API_KEY } = process.env;
 
 	return (
-		console.log(data.lat, data.lng),
-		(
-			<LoadScript googleMapsApiKey={API_KEY}>
-				<GoogleMap mapContainerStyle={mapStyles} zoom={15} center={LatLng}>
-					<Marker position={LatLng} />
-				</GoogleMap>
-			</LoadScript>
-		)
+		<LoadScript googleMapsApiKey={API_KEY}>
+			<GoogleMap mapContainerStyle={mapStyles} zoom={15} center={LatLng}>
+				<Marker position={LatLng} />
+			</GoogleMap>
+		</LoadScript>
 	);
 };
 

@@ -14,17 +14,14 @@ const Success = () => {
 		buyer[0].country
 	);
 	return (
-		console.log(state, location),
-		(
-			<div className='Success'>
-				<div className='Success-content'>
-					<h2>{buyer[0].name}</h2>
-					<span>Tu pedido llegara en 3 dias a tu dirección</span>
+		<div className='Success'>
+			<div className='Success-content'>
+				<h2>{buyer[0].name}</h2>
+				<span>Tu pedido llegara en 3 dias a tu dirección</span>
 
-					<div className='Success-map'> {<Map data={location} />} </div>
-				</div>
+				<div className='Success-map'> {<Map data={location} />} </div>
 			</div>
-		)
+		</div>
 	);
 };
 
