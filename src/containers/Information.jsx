@@ -4,26 +4,26 @@ import AppContext from '../context/AppContext';
 import '../styles/components/Information.css';
 
 const Information = () => {
-	const {
-		state: { cart },
-		addToBuyer,
-	} = useContext(AppContext);
+	const { state, addToBuyer } = useContext(AppContext);
 	const form = useRef(null);
 	const history = useHistory();
+	const { cart } = state;
 
 	const handleSubmit = () => {
 		const formData = new FormData(form.current);
+		// prettier-ignore
 		const buyer = {
-			name: formData.get('name'),
-			email: formData.get('email'),
-			address: formData.get('address'),
-			apto: formData.get('apto'),
-			city: formData.get('city'),
-			country: formData.get('country'),
-			state: formData.get('state'),
-			cp: formData.get('cp'),
-			phone: formData.get('phone'),
+			'name': formData.get('name'),
+			'email': formData.get('email'),
+			'address': formData.get('address'),
+			'apto': formData.get('apto'),
+			'city': formData.get('city'),
+			'country': formData.get('country'),
+			'state': formData.get('state'),
+			'cp': formData.get('cp'),
+			'phone': formData.get('phone'),
 		};
+		console.log(buyer.name);
 		addToBuyer(buyer);
 		history.push('/checkout/payment');
 	};
@@ -60,8 +60,8 @@ const Information = () => {
 			</div>
 			<div className='Information-sidebar'>
 				<h3>Pedido: </h3>
-				{cart.map((item, index) => (
-					<div className='Information-item' key={index}>
+				{cart.map((item) => (
+					<div className='Information-item' key={item.index}>
 						<div className='Information-element'>
 							<h4>{item.title}</h4>
 							<span>{item.price}</span>
