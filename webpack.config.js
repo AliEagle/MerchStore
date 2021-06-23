@@ -56,10 +56,12 @@ module.exports = {
 		}),
 
 		new webpack.DefinePlugin({
-			'process.env': {
-				REACT_APP_CLIENT_ID: JSON.stringify(process.env.REACT_APP_CLIENT_ID),
-				API_KEY: JSON.stringify(process.env.API_KEY),
-			},
+			'process.env': [
+				{
+					REACT_APP_CLIENT_ID: JSON.stringify(process.env.REACT_APP_CLIENT_ID),
+					API_KEY: JSON.stringify(process.env.API_KEY),
+				},
+			],
 		}),
 
 		new Dotenv({
