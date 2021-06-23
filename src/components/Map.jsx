@@ -19,7 +19,7 @@ const Map = ({ data }) => {
 		console.log(data.lat, data.lng),
 		(
 			<LoadScript googleMapsApiKey={mapsID}>
-				<GoogleMap mapContainerStyle={mapStyles} zoom={15} center={LatLng}>
+				<GoogleMap mapContainerStyle={mapStyles} zoom={10} center={LatLng}>
 					<Marker position={LatLng} />
 				</GoogleMap>
 			</LoadScript>
