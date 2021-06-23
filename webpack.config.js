@@ -1,8 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack');
-const Dotenv = require('dotenv').config();
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
 	mode: 'production',
@@ -61,13 +60,9 @@ module.exports = {
 			defaults: false,
 		}),
 
-		new webpack.DefinePlugin({
-			'process.env.REACT_APP_CLIENT_ID': {
+		new DefinePlugin({
+			'process.env': {
 				REACT_APP_CLIENT_ID: JSON.stringify(process.env.REACT_APP_CLIENT_ID),
-			},
-		}),
-		new webpack.DefinePlugin({
-			'process.env.API_KEY': {
 				API_KEY: JSON.stringify(process.env.API_KEY),
 			},
 		}),

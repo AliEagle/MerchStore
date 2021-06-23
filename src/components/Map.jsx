@@ -12,7 +12,7 @@ const Map = ({ data }) => {
 		lng: parseFloat(data.lng),
 	};
 
-	const API_KEY = process.env.API_KEY;
+	const { API_KEY } = process.env;
 
 	return (
 		console.log(data.lat, data.lng),

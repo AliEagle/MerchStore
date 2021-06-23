@@ -7,7 +7,7 @@ const Payment = ({ history }) => {
 	const { state, addNewOrder } = useContext(AppContext);
 	const { cart, buyer } = state;
 
-	const REACT_APP_CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+	const { REACT_APP_CLIENT_ID } = process.env;
 
 	const paypalOptions = {
 		REACT_APP_CLIENT_ID: REACT_APP_CLIENT_ID,
