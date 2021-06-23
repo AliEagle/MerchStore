@@ -55,8 +55,12 @@ module.exports = {
 		}),
 
 		new Dotenv({
-			path: path.resolve(__dirname, './src/.env'),
+			path: './.env',
+			safe: true,
+			systemvars: true,
+			defaults: false,
 		}),
+
 		new webpack.DefinePlugin({
 			'process.env.REACT_APP_CLIENT_ID': {
 				REACT_APP_CLIENT_ID: JSON.stringify(process.env.REACT_APP_CLIENT_ID),
